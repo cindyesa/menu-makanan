@@ -1,5 +1,6 @@
 package com.cindy.menumakanan
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -41,17 +42,18 @@ class Adapter(
         return ViewHolder(view)
     }
 
+    @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
         viewHolder.namaTextView.text = menuMakanan[position]
         viewHolder.fotoImage.setImageResource(menuImage[position])
-        viewHolder.hargaTextView.text = hargaMakanan[position]
+        viewHolder.hargaTextView.text = "Rp" + hargaMakanan[position]
         viewHolder.cardView.setOnClickListener {
             val x = Bundle()
             x.putString("menu", menuMakanan[position])
             x.putString("desk", menuDeskripsi[position])
             x.putString("harga", hargaMakanan[position])
             x.putInt("foto", menuImage[position])
-            val intent = Intent(viewHolder.cardView.context, Detail::class.java)
+            val intent = Intent(viewHolder.cardView.context, detail::class.java)
             intent.putExtras(x)
             viewHolder.cardView.context.startActivity(intent)
         }

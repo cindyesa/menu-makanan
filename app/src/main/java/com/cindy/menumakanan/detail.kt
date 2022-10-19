@@ -7,7 +7,7 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 
 
-class Detail : AppCompatActivity() {
+class detail : AppCompatActivity() {
     @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,7 +26,7 @@ class Detail : AppCompatActivity() {
 
         name.text = menu
         image.setImageResource(foto)
-        hargatxt.text = "Rp $harga"
+        hargatxt.text = "Rp$harga"
         desktxt.text = desk
     }
 }
